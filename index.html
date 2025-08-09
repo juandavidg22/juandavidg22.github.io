@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Presentación Personal</title>
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(90deg, #4a00e0, #8e2de2);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #4a00e0;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #8e2de2;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #4a00e0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* --- CARRUSEL --- */
+        .carousel {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .carousel img {
+            width: 100%;
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
+        }
+
+        /* --- PROYECTOS --- */
+        .proyectos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .proyecto {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .proyecto:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #f4f4f4;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Juan Pérez</h1>
+        <p>Desarrollador Web | Diseñador | Apasionado por la tecnología</p>
+    </header>
+
+    <nav>
+        <a href="#presentacion">Presentación</a>
+        <a href="#conocimientos">Conocimientos</a>
+        <a href="#proyectos">Proyectos</a>
+    </nav>
+
+    <!-- PRESENTACIÓN -->
+    <section id="presentacion">
+        <h2>Presentación Personal</h2>
+        <p>¡Hola! Soy Juan Pérez, un desarrollador web con experiencia en HTML, CSS, JavaScript y frameworks modernos. Me apasiona crear experiencias digitales atractivas, funcionales y accesibles para todos.</p>
+    </section>
+
+    <!-- CARRUSEL -->
+    <section>
+        <div class="carousel">
+            <img src="https://via.placeholder.com/800x400/4a00e0/ffffff?text=Proyecto+1" class="active" alt="Proyecto 1">
+            <img src="https://via.placeholder.com/800x400/8e2de2/ffffff?text=Proyecto+2" alt="Proyecto 2">
+            <img src="https://via.placeholder.com/800x400/00c3ff/ffffff?text=Proyecto+3" alt="Proyecto 3">
+        </div>
+    </section>
+
+    <!-- CONOCIMIENTOS -->
+    <section id="conocimientos">
+        <h2>Conocimientos</h2>
+        <ul>
+            <li>HTML5, CSS3, JavaScript</li>
+            <li>Frameworks: React, Vue.js</li>
+            <li>Diseño Responsivo y Accesibilidad</li>
+            <li>Control de versiones con Git y GitHub</li>
+        </ul>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos">
+        <h2>Proyectos</h2>
+        <div class="proyectos">
+            <div class="proyecto">
+                <h3>Proyecto 1</h3>
+                <p>Descripción breve del proyecto 1.</p>
+            </div>
+            <div class="proyecto">
+                <h3>Proyecto 2</h3>
+                <p>Descripción breve del proyecto 2.</p>
+            </div>
+            <div class="proyecto">
+                <h3>Proyecto 3</h3>
+                <p>Descripción breve del proyecto 3.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Juan Pérez - Todos los derechos reservados.
+    </footer>
+
+    <!-- --- JAVASCRIPT DEL CARRUSEL --- -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel img');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000); // Cambia de imagen cada 3 segundos
+    </script>
+</body>
+</html>
